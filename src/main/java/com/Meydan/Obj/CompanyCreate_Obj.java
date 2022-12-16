@@ -61,12 +61,15 @@ public class CompanyCreate_Obj extends AllBrowsers{
 	//Immigration card
 	public @FindBy(xpath = "//strong[text()='No']/ancestor::label/span") WebElement visaProcess;
 	
+	//Office Facility
+	public @FindBy(xpath = "//h2[text()='Type of facility']") WebElement facilityType_txt;
+	
 	//Shareholder information
 	public @FindBy(xpath = "//label[text()='Number of shareholders ']/ancestor::div/input") WebElement shareholderNub;
 	public @FindBy(xpath = "//h2[text()='Share quantity and value']") WebElement shareQuantity_txt;
 	public @FindBy(xpath = "//a[text()=' Shareholder 1 ']") WebElement shareholder1_box;
 	public @FindBy(xpath = "//h3[text()=' Existing Meydan user? ']/ancestor::div/app-radio/div/div/div[1]/label/strong/ancestor::label/span") WebElement existingMeydan_yes;
-	public @FindBy(xpath = "//h3[text()=' Existing Meydan user? ']/ancestor::div/app-radio/div/div/div[2]/label/strong/ancestor::label/span") WebElement existingMeydan_no;
+	public @FindBy(xpath = "//h3[text()=' Existing Meydan user? ']/ancestor::div/app-radio/div/div/div[2]/label/div") WebElement existingMeydan_no;
 	
 	//Shareholder information - Existing user
 	public @FindBy(xpath = "//div[text()=' Does the Shareholder have a Nominee?']/ancestor::div/label[1]/span[1]") WebElement shareholderNominee;
@@ -77,13 +80,45 @@ public class CompanyCreate_Obj extends AllBrowsers{
 
 	//Shareholder information - New user
 	public @FindBy(xpath = "//h3[text()=' Select the type of Shareholder ']/ancestor::div/app-radio/div/div/div[1]/label/strong/ancestor::label/span") WebElement shareholder_type;
-	public @FindBy(xpath = "//label[text()='Passport copy']/ancestor::app-file/div[2]/div/div/span/div[3]/div/input") WebElement passport_img;
+	public @FindBy(xpath = "//label[text()='Passport copy']/ancestor::div[@class='form-group help-info']/div/div/label") WebElement passportFile_open;
+	public @FindBy(xpath = "//label[text()='Passport copy']/ancestor::app-file/div[2]/div/div/span/div[3]/div/input") WebElement browser_passport_img;
+	public @FindBy(xpath = "//label[text()='Passport copy']/ancestor::app-file/div[2]/div/div/span/div[3]/div/span") WebElement pass_browseFile_txt;
+	public @FindBy(xpath = "//label[text()='Passport copy']/ancestor::app-file/div[2]/div/div/span/div[3]/a") WebElement passSselect_btn;	
+	
+	public @FindBy(xpath = "//div[@class='page-level-loader ng-star-inserted']") WebElement pageLoder;
+	public @FindBy(xpath = "//label[text()='Upload special page of passport']/ancestor::div[@class='form-group help-info']/div/div/label") WebElement passportPageFile_open;
+	public @FindBy(xpath = "//label[text()='Upload special page of passport']/ancestor::app-file/div[2]/div/div/span/div[3]/div/input") WebElement browser_passportPage_img;
+	public @FindBy(xpath = "//label[text()='Upload special page of passport']/ancestor::app-file/div[2]/div/div/span/div[3]/div/span") WebElement passPage_browseFile_txt;
+	public @FindBy(xpath = "//label[text()='Upload special page of passport']/ancestor::app-file/div[2]/div/div/span/div[3]/a") WebElement passPageSelect_btn;
+	
+	public @FindBy(xpath = "//label[text()='Passport style photo (as per guidelines)']/ancestor::div[@class='form-group help-info']/div/div/label") WebElement passportPhotoFile_open;
+	public @FindBy(xpath = "//label[text()='Passport style photo (as per guidelines)']/ancestor::app-file/div[2]/div/div/span/div[3]/div/input") WebElement browser_PassportPhoto_img;
+	public @FindBy(xpath = "//label[text()='Passport style photo (as per guidelines)']/ancestor::app-file/div[2]/div/div/span/div[3]/div/span") WebElement passPhoto_browseFile_txt;
+	public @FindBy(xpath = "//label[text()='Passport style photo (as per guidelines)']/ancestor::app-file/div[2]/div/div/span/div[3]/a") WebElement passPhotoSelect_btn;
+	
+	public @FindBy(xpath = "//label[text()='First name']/preceding-sibling::input") WebElement shareholderFName;
+	public @FindBy(xpath = "//label[text()='Last name']/preceding-sibling::input") WebElement shareholderLname;
+	public @FindBy(xpath = "//span[text()='Male']/ancestor::label/span[1]") WebElement genderSelect;
+	public @FindBy(xpath = "//label[text()='E-mail ID']/preceding-sibling::input") WebElement shareholderEmail;
+	public @FindBy(xpath = "//input[@type='tel']") WebElement shareholderTelphone;
+	
+	public @FindBy(xpath = "//label[text()='Place Of Birth']/preceding-sibling::input") WebElement shareholderBirthPlace;
+	public @FindBy(xpath = "//label[text()='Nationality']/ancestor::div/select") WebElement shareholderNationality;
+	public @FindBy(xpath = "//label[text()='Address line 1']/preceding-sibling::textarea") WebElement shareholderAddress1;
+	public @FindBy(xpath = "//label[text()='Address line 2']/preceding-sibling::textarea") WebElement shareholderAddress2;
+	public @FindBy(xpath = "//label[text()='City']/preceding-sibling::input") WebElement shareholderCity;
+	public @FindBy(xpath = "//label[text()='Country']/ancestor::div/select") WebElement shareholderCountry;
+	
+	public @FindBy(xpath = "//label[text()='Passport number']/preceding-sibling::input") WebElement shareholderPassportNumber;
+	public @FindBy(xpath = "//label[text()='Passport issuing location']/preceding-sibling::input") WebElement shareholderPass_location;
+	public @FindBy(xpath = "//label[text()='Visa number']/preceding-sibling::input") WebElement shareholderVisanum;
+	public @FindBy(xpath = "//label[text()='Emirates ID number']/preceding-sibling::input") WebElement shareholderEmirID;
 	
 	
-
 	
 	
 	
 	
-
+	
+	
 }

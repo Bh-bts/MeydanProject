@@ -23,7 +23,7 @@ public class CompanyCreate_Page extends CompanyCreate_Obj {
 		try {
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(100));
+			WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(80));
 			Faker faker = new Faker();
 
 			//Login page
@@ -41,7 +41,7 @@ public class CompanyCreate_Page extends CompanyCreate_Obj {
 			start_process_btn.click();
 			
 			//Formation package (Page 1)
-			w.until(ExpectedConditions.visibilityOf(establishment_text));
+			w.until(ExpectedConditions.visibilityOf(establishment_type));
 
 			establishment_type.click();
 			w.until(ExpectedConditions.visibilityOf(company_type));
@@ -52,6 +52,7 @@ public class CompanyCreate_Page extends CompanyCreate_Obj {
 			
 			//Business Activity (Page 2)
 			w.until(ExpectedConditions.visibilityOf(business_acitivity));
+			js.executeScript("arguments[0].scrollIntoView(true);", business_acitivity);
 			business_acitivity.click();
 			w.until(ExpectedConditions.visibilityOf(businessCate_chkbox1));
 			js.executeScript("arguments[0].scrollIntoView(true);", businessCate_chkbox1);
@@ -106,9 +107,9 @@ public class CompanyCreate_Page extends CompanyCreate_Obj {
 			js.executeScript("arguments[0].scrollIntoView(true);", cmpNameTrans);
 			cmpNameTrans.click();
 			
-			w.until(ExpectedConditions.visibilityOf(attroneyPower));
-			js.executeScript("arguments[0].scrollIntoView(true);", attroneyPower);
-			attroneyPower.click();
+//			w.until(ExpectedConditions.visibilityOf(attroneyPower));
+//			js.executeScript("arguments[0].scrollIntoView(true);", attroneyPower);
+//			attroneyPower.click();
 			
 			js.executeScript("arguments[0].scrollIntoView(true);", next_btn);
 			next_btn.click();
@@ -126,6 +127,7 @@ public class CompanyCreate_Page extends CompanyCreate_Obj {
 			next_btn.click();
 			
 			//Office facility
+			w.until(ExpectedConditions.visibilityOf(facilityType_txt));
 			js.executeScript("arguments[0].scrollIntoView(true);", next_btn);
 			next_btn.click();
 			
@@ -135,7 +137,7 @@ public class CompanyCreate_Page extends CompanyCreate_Obj {
 			shareholder1_box.click();
 			
 			ShareholderMeydanUser exisitUser_yes = PageFactory.initElements(driver, ShareholderMeydanUser.class);
-			exisitUser_yes.shareholderMeydan_user_yes();
+			exisitUser_yes.shareholderMeydan_user_no();
 			
 			
 			
