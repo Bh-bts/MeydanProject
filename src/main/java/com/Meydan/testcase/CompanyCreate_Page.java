@@ -102,7 +102,7 @@ public class CompanyCreate_Page extends CompanyCreate_Obj {
 			String preferredCmp3 = faker.company().name();
 			cmpName3.sendKeys(preferredCmp3);
 			
-			System.out.println("Company Name : " + cmpName1.getAttribute("value") + '\n');
+			System.out.println("Company Name : " + ANSI_BLUE + cmpName1.getAttribute("value") + ANSI_RESET + '\n');
 			w.until(ExpectedConditions.visibilityOf(cmpNameTrans));
 			js.executeScript("arguments[0].scrollIntoView(true);", cmpNameTrans);
 			cmpNameTrans.click();
@@ -133,15 +133,37 @@ public class CompanyCreate_Page extends CompanyCreate_Obj {
 			
 			//Shareholder information
 			w.until(ExpectedConditions.visibilityOf(shareQuantity_txt));
+			String count = shareCount.getAttribute("value");
 			js.executeScript("arguments[0].scrollIntoView(true);", shareholder1_box);
 			shareholder1_box.click();
 			
 			ShareholderMeydanUser exisitUser_yes = PageFactory.initElements(driver, ShareholderMeydanUser.class);
 			exisitUser_yes.shareholderMeydan_user_no();
 			
+			js.executeScript("arguments[0].scrollIntoView(true);", save_btn);
+			save_btn.click();
+			w.until(ExpectedConditions.visibilityOf(shareDistrubation));
+			js.executeScript("arguments[0].scrollIntoView(true);", shareDistrubation);
+			share_enter.sendKeys(count); 
+			w.until(ExpectedConditions.visibilityOf(next_btn));
+			next_btn.click();
 			
+			//Manager information
+			w.until(ExpectedConditions.visibilityOf(manager_num_txt));
+			js.executeScript("arguments[0].scrollIntoView(true);", manager1_box);
+			manager1_box.click();
 			
+			w.until(ExpectedConditions.visibilityOf(existingMeydan_selectStakeholder));
+			js.executeScript("arguments[0].scrollIntoView(true);", existingMeydan_selectStakeholder);
 			
+			ManagerMeydanUser selectStakeholder = PageFactory.initElements(driver, ManagerMeydanUser.class);
+			selectStakeholder.managerMeydan_user_addNew();
+			
+			save_btn.click();
+			activityQuestion.click();
+			w.until(ExpectedConditions.visibilityOf(next_btn_txt));
+			next_btn.click();
+
 
 		} catch (NoSuchElementException e) {
 			System.out.println(e.getMessage());
