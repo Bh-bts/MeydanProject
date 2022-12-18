@@ -16,18 +16,18 @@ import com.github.javafaker.Faker;
  * @author Bhavin
  *
  */
-public class ManagerMeydanUser extends ShareholderMeydanUser {
+public class DirectorMeydanUser extends ManagerMeydanUser {
 
-	public void managerMeydan_user_selectStakeholder() {
+	public void directorMeydan_user_selectStakeholder() {
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(60));
 
-		existingMeydan_selectStakeholder.click();
+		existingMeydan_selectStakeholder_director.click();
 
-		w.until(ExpectedConditions.visibilityOf(managerNominee));
-		js.executeScript("arguments[0].scrollIntoView(true);", managerNominee);
-		managerNominee.click();
+		w.until(ExpectedConditions.visibilityOf(directorNominee));
+		js.executeScript("arguments[0].scrollIntoView(true);", directorNominee);
+		directorNominee.click();
 
 		managerTask_POA.click();
 
@@ -37,28 +37,28 @@ public class ManagerMeydanUser extends ShareholderMeydanUser {
 
 	}
 
-	public void managerMeydan_user_existStakeholder() {
+	public void directrMeydan_user_existStakeholder() {
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(60));
 
-		exisitingStakeholder.click();
+		exisitingStakeholder_director.click();
 
-		w.until(ExpectedConditions.visibilityOf(managerNominee));
-		js.executeScript("arguments[0].scrollIntoView(true);", managerNominee);
-		managerNominee.click();
+		w.until(ExpectedConditions.visibilityOf(directorNominee));
+		js.executeScript("arguments[0].scrollIntoView(true);", directorNominee);
+		directorNominee.click();
 
 		managerTask_POA.click();
 
 	}
 
-	public void managerMeydan_user_addNew() {
+	public void directorMeydan_user_addNew() {
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(60));
 		Faker faker = new Faker();
 
-		addManager.click();
+		addDirector.click();
 
 		w.until(ExpectedConditions.visibilityOf(passportFile_open));
 		js.executeScript("arguments[0].scrollIntoView(true);", passportFile_open);
@@ -76,42 +76,43 @@ public class ManagerMeydanUser extends ShareholderMeydanUser {
 		manager_passPageSelect_btn.click();
 
 		w.until(ExpectedConditions.invisibilityOf(pageLoder));
-		String managerfname = faker.name().firstName();
-		managerFName.sendKeys(managerfname);
+		String directorfname = faker.name().firstName();
+		directorFName.sendKeys(directorfname);
 
-		String managerlname = faker.name().lastName();
-		managerLname.sendKeys(managerlname);
+		String directorlname = faker.name().lastName();
+		directorLname.sendKeys(directorlname);
 
 		js.executeScript("arguments[0].scrollIntoView(true);", genderSelect);
 		genderSelect.click();
 
 		String domain = "@gmail.com";
-		String shareEmail = managerfname.toLowerCase() + "." + managerlname.toLowerCase() + domain;
-		managerEmail.sendKeys(shareEmail);
-		System.out.println("Manager Email is : " + ANSI_GREEN + managerEmail.getAttribute("value") + ANSI_RESET + '\n');
+		String shareEmail = directorfname.toLowerCase() + "." + directorlname.toLowerCase() + domain;
+		directorEmail.sendKeys(shareEmail);
+		System.out
+				.println("Director Email is : " + ANSI_GREEN + directorEmail.getAttribute("value") + ANSI_RESET + '\n');
 
-		String managerTelnumber = faker.number().digits(8);
-		telphone.sendKeys(managerTelnumber);
+		String directorTelnumber = faker.number().digits(8);
+		telphone.sendKeys(directorTelnumber);
 
 		Select nationality = new Select(nationality_dwn);
 		nationality.selectByVisibleText("India");
 
-		String managerAddress1 = faker.address().fullAddress();
-		address1.sendKeys(managerAddress1);
+		String directorAddress1 = faker.address().fullAddress();
+		address1.sendKeys(directorAddress1);
 
-		String managerAddress2 = faker.address().fullAddress();
-		address2.sendKeys(managerAddress2);
+		String directorAddress2 = faker.address().fullAddress();
+		address2.sendKeys(directorAddress2);
 
-		String managerCity = faker.address().city();
-		city.sendKeys(managerCity);
+		String directorCity = faker.address().city();
+		city.sendKeys(directorCity);
 
 		js.executeScript("arguments[0].scrollIntoView(true);", country);
-		Select managerCountry = new Select(country);
-		managerCountry.selectByVisibleText("India");
+		Select directorCountry = new Select(country);
+		directorCountry.selectByVisibleText("India");
 
 		String passport = faker.number().digits(8);
 		passportNumber.sendKeys(passport);
-		System.out.println("Manager passport number is : " + ANSI_GREEN + passportNumber.getAttribute("value")
+		System.out.println("Director passport number is : " + ANSI_GREEN + passportNumber.getAttribute("value")
 				+ ANSI_RESET + '\n');
 
 		String pass_location = faker.address().city();
@@ -126,15 +127,14 @@ public class ManagerMeydanUser extends ShareholderMeydanUser {
 		js.executeScript("arguments[0].scrollIntoView(true);", entry_status);
 		entry_status.click();
 
-		js.executeScript("arguments[0].scrollIntoView(true);", manager_nominee);
-		manager_nominee.click();
+		js.executeScript("arguments[0].scrollIntoView(true);", director_nominee);
+		director_nominee.click();
 		pep_Declaration.click();
 
 		js.executeScript("arguments[0].scrollIntoView(true);", address_Confi_proof);
 		address_Confi_proof.click();
 		source_welth_required.click();
 		managerTask_POA.click();
-		activityQuestion.click();
 
 	}
 

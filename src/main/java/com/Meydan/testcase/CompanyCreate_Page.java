@@ -137,8 +137,8 @@ public class CompanyCreate_Page extends CompanyCreate_Obj {
 			js.executeScript("arguments[0].scrollIntoView(true);", shareholder1_box);
 			shareholder1_box.click();
 			
-			ShareholderMeydanUser exisitUser_yes = PageFactory.initElements(driver, ShareholderMeydanUser.class);
-			exisitUser_yes.shareholderMeydan_user_no();
+			ShareholderMeydanUser exisitUser = PageFactory.initElements(driver, ShareholderMeydanUser.class);
+			exisitUser.shareholderMeydan_user_no();
 			
 			js.executeScript("arguments[0].scrollIntoView(true);", save_btn);
 			save_btn.click();
@@ -156,15 +156,79 @@ public class CompanyCreate_Page extends CompanyCreate_Obj {
 			w.until(ExpectedConditions.visibilityOf(existingMeydan_selectStakeholder));
 			js.executeScript("arguments[0].scrollIntoView(true);", existingMeydan_selectStakeholder);
 			
-			ManagerMeydanUser selectStakeholder = PageFactory.initElements(driver, ManagerMeydanUser.class);
-			selectStakeholder.managerMeydan_user_addNew();
+			ManagerMeydanUser stakeholder = PageFactory.initElements(driver, ManagerMeydanUser.class);
+			stakeholder.managerMeydan_user_selectStakeholder();
 			
 			save_btn.click();
-			activityQuestion.click();
 			w.until(ExpectedConditions.visibilityOf(next_btn_txt));
 			next_btn.click();
-
-
+			
+			//Director information
+			w.until(ExpectedConditions.visibilityOf(director_num_txt));
+			js.executeScript("arguments[0].scrollIntoView(true);", director1_box);
+			director1_box.click();
+			
+			w.until(ExpectedConditions.visibilityOf(existingMeydan_selectStakeholder_director));
+			js.executeScript("arguments[0].scrollIntoView(true);", existingMeydan_selectStakeholder_director);
+			
+			DirectorMeydanUser stakeholder_manager = PageFactory.initElements(driver, DirectorMeydanUser.class);
+			stakeholder_manager.directorMeydan_user_selectStakeholder();
+			
+			save_btn.click();
+			w.until(ExpectedConditions.visibilityOf(next_btn_txt));
+			next_btn.click();
+			
+			//UBO information
+			w.until(ExpectedConditions.visibilityOf(UBO_details_txt));
+			js.executeScript("arguments[0].scrollIntoView(true);", UBO1_box);
+			UBO1_box.click();
+			
+			w.until(ExpectedConditions.visibilityOf(existingMeydan_selectStakeholder_UBO));
+			js.executeScript("arguments[0].scrollIntoView(true);", existingMeydan_selectStakeholder_UBO);
+			
+			UBOMeydanUser stakeholder_UBO = PageFactory.initElements(driver, UBOMeydanUser.class);
+			stakeholder_UBO.UBOMeydan_user_selectStakeholder();
+			
+			SAVE_btn.click();
+			w.until(ExpectedConditions.invisibilityOf(entitis));
+			next_btn.click();
+			
+			//Nominee information
+			w.until(ExpectedConditions.visibilityOf(nominee1_box));
+			js.executeScript("arguments[0].scrollIntoView(true);", nominee1_box);
+			nominee1_box.click();
+			
+			w.until(ExpectedConditions.visibilityOf(selectStakeholder_nominee));
+			js.executeScript("arguments[0].scrollIntoView(true);", selectStakeholder_nominee);
+			
+			NomineeMeydanUser stakeholder_nominee = PageFactory.initElements(driver, NomineeMeydanUser.class);
+			stakeholder_nominee.nomineeMeydan_user_selectStakeholder();
+			
+			js.executeScript("arguments[0].scrollIntoView(true);", SAVE_btn);
+			SAVE_btn.click();
+			w.until(ExpectedConditions.invisibilityOf(shareholder_value_UBO));
+			next_btn.click();
+			
+			w.until(ExpectedConditions.visibilityOf(activityDeclaration));
+			activity_type.click();
+			
+			w.until(ExpectedConditions.visibilityOf(next_btn));
+			js.executeScript("arguments[0].scrollIntoView(true);", next_btn);
+			next_btn.click();
+			
+			w.until(ExpectedConditions.visibilityOf(shareholderInformation_txt));
+			js.executeScript("arguments[0].scrollIntoView(true);", next_btn);
+			next_btn.click();
+			
+			w.until(ExpectedConditions.visibilityOf(payment_method));
+			js.executeScript("arguments[0].scrollIntoView(true);", payment_method);
+			payment_method.click();
+			js.executeScript("arguments[0].scrollIntoView(true);", company_submit_btn);
+			company_submit_btn.click();
+			
+			w.until(ExpectedConditions.visibilityOf(dashboard_btn));
+			dashboard_btn.click();
+			
 		} catch (NoSuchElementException e) {
 			System.out.println(e.getMessage());
 
