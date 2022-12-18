@@ -234,7 +234,12 @@ public class CompanyCreate_Obj extends AllBrowsers {
 
 	public @FindBy(xpath = "//label[text()='Passport copy']/ancestor::div[@class='form-group']/div/div/label") WebElement nomineephotoFile_open;
 	public @FindBy(xpath = "//label[text()='Passport Number']/ancestor::div/input") WebElement nominee_passportNum;
-
+	
+	public @FindBy(xpath = "//a[text()=' Details for Manager 1 - Nominee ']") WebElement nominee_manager_box;
+	public @FindBy(xpath = "//a[text()=' Details for Manager 1 - Nominee ']/preceding::app-radio/div/div/div[3]/label/strong/ancestor::label/span") WebElement addNominee_manager;
+	public @FindBy(xpath = "//a[text()=' Details for Shareholder 1 - Nominee ']/ancestor::div/div/div/following-sibling::div/div/div/app-radio/div/label[2]/span[text()='Entity']/ancestor::label/span[1]") WebElement nominee_type_manager;
+	
+	
 	// General declaration
 	public @FindBy(xpath = "//h2[text()='Activity declaration']") WebElement activityDeclaration;
 	public @FindBy(xpath = "//label[text()=' None of the above ']") WebElement activity_type;

@@ -3,8 +3,13 @@
  */
 package com.Meydan.testcase;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.time.Duration;
 
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,10 +25,13 @@ import com.github.javafaker.Faker;
  */
 public class ShareholderMeydanUser extends CompanyCreate_Obj {
 
+	XSSFWorkbook wb = null;
+	XSSFSheet sh = null;
+	
 	public void shareholderMeydan_user_yes() {
 
 		try {
-
+			
 			WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(30));
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 
@@ -100,6 +108,16 @@ public class ShareholderMeydanUser extends CompanyCreate_Obj {
 			String domain = "@gmail.com";
 			String shareEmail = shareholderfname.toLowerCase() + "." + shareholderlname.toLowerCase() + domain;
 			shareholderEmail.sendKeys(shareEmail);
+			
+//			File file = new File(projectPath + "output.xlsx");
+//			FileInputStream fis = new FileInputStream(file);
+//			wb = new XSSFWorkbook(fis);
+//			sh = wb.getSheetAt(0);
+//			
+//			sh.getRow(0).createCell(2).setCellValue(shareEmail);
+//			FileOutputStream fos = new FileOutputStream(file);
+//			wb.write(fos);
+//			
 			System.out.println("Shareholder Email is : " + ANSI_GREEN + shareholderEmail.getAttribute("value")
 					+ ANSI_RESET + '\n');
 
@@ -156,6 +174,8 @@ public class ShareholderMeydanUser extends CompanyCreate_Obj {
 		} catch (NoSuchElementException e) {
 			System.out.println(e.getMessage());
 
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 
 	}

@@ -157,7 +157,7 @@ public class CompanyCreate_Page extends CompanyCreate_Obj {
 			js.executeScript("arguments[0].scrollIntoView(true);", existingMeydan_selectStakeholder);
 			
 			ManagerMeydanUser stakeholder = PageFactory.initElements(driver, ManagerMeydanUser.class);
-			stakeholder.managerMeydan_user_selectStakeholder();
+			stakeholder.managerMeydan_user_addNew();
 			
 			save_btn.click();
 			w.until(ExpectedConditions.visibilityOf(next_btn_txt));
@@ -172,7 +172,7 @@ public class CompanyCreate_Page extends CompanyCreate_Obj {
 			js.executeScript("arguments[0].scrollIntoView(true);", existingMeydan_selectStakeholder_director);
 			
 			DirectorMeydanUser stakeholder_manager = PageFactory.initElements(driver, DirectorMeydanUser.class);
-			stakeholder_manager.directorMeydan_user_selectStakeholder();
+			stakeholder_manager.directorMeydan_user_addNew();
 			
 			save_btn.click();
 			w.until(ExpectedConditions.visibilityOf(next_btn_txt));
@@ -187,7 +187,7 @@ public class CompanyCreate_Page extends CompanyCreate_Obj {
 			js.executeScript("arguments[0].scrollIntoView(true);", existingMeydan_selectStakeholder_UBO);
 			
 			UBOMeydanUser stakeholder_UBO = PageFactory.initElements(driver, UBOMeydanUser.class);
-			stakeholder_UBO.UBOMeydan_user_selectStakeholder();
+			stakeholder_UBO.UBOMeydan_user_addNew();
 			
 			SAVE_btn.click();
 			w.until(ExpectedConditions.invisibilityOf(entitis));
@@ -202,7 +202,10 @@ public class CompanyCreate_Page extends CompanyCreate_Obj {
 			js.executeScript("arguments[0].scrollIntoView(true);", selectStakeholder_nominee);
 			
 			NomineeMeydanUser stakeholder_nominee = PageFactory.initElements(driver, NomineeMeydanUser.class);
-			stakeholder_nominee.nomineeMeydan_user_selectStakeholder();
+			stakeholder_nominee.nomineeMeydan_user_addNew_shareholder1();
+			
+			NomineeMeydanUser manager_nominee = PageFactory.initElements(driver, NomineeMeydanUser.class);
+			manager_nominee.nomineeMeydan_user_addNew_manager1();
 			
 			js.executeScript("arguments[0].scrollIntoView(true);", SAVE_btn);
 			SAVE_btn.click();
